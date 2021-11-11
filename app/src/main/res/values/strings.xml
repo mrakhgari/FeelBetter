@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FeelBetter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">todo</string>
+    <string name="memories">Memories</string>
+    <string name="inspiring">Inspiring</string>
 </resources>
