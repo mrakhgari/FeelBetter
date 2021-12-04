@@ -5,4 +5,11 @@
     <string name="todo">todo</string>
     <string name="memories">Memories</string>
     <string name="inspiring">Inspiring</string>
+    <string name="inspiring_title_1">Draw your dreams</string>
+    <string name="inspiring_title_2">Draw your dreams</string>
+    <string name="inspiring_title_3">Draw your dreams</string>
+    <string name="inspiring_desc_1">Draw your dreams desc</string>
+    <string name="inspiring_desc_2">Draw your dreams desc</string>
+    <string name="inspiring_desc_3">Draw your dreams desc</string>
+
 </resources>

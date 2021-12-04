@@ -3,6 +3,7 @@ package com.example.feelbetter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import com.example.feelbetter.datasets.InspiringContentDataset
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
