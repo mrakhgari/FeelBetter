@@ -17,20 +17,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:tabIndicator="@null"
+        android:layout_marginBottom="3dp"
         android:background="@color/dark_purple"
         app:tabGravity="fill"
-        app:tabMaxWidth="0dp"
         app:tabIconTint="@color/tab_content_color_selector"
+        app:tabIndicator="@null"
+        app:tabMaxWidth="0dp"
+        app:tabMode="fixed"
         app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/gray"
-        app:tabMode="fixed">
+        app:tabTextColor="@color/gray">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_baseline_today_24"
             android:text="@string/todo" />
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
