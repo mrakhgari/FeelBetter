@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true" />
         <activity
             android:name=".LoginPage"
