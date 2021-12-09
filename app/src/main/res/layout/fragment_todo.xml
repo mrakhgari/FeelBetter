@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TodoFragment"
+    tools:context=".fragments.TodoFragment"
     >
 
 <LinearLayout
@@ -24,9 +24,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_gravity="center"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="100dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             />
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All Tasks"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_gravity="center"
             android:textColor="@color/black"
             />
@@ -44,7 +44,7 @@
 
 <View android:background="#000"
       android:layout_width="match_parent"
-       android:layout_height="5px"/>
+       android:layout_height="5dp"/>
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -64,9 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Task1"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_gravity="center"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="100dp"
             android:textColor="@color/white"
             android:padding="10dp"
             />
@@ -84,9 +84,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Task2"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:layout_gravity="center"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="100dp"
             android:textColor="@color/white"
             android:padding="10dp"
             />
@@ -100,7 +100,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    android:layout_marginLeft="280dp"
+    android:layout_marginStart="280dp"
     >
 
     <Button
