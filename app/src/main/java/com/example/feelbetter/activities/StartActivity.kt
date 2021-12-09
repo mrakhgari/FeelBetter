@@ -1,10 +1,11 @@
-package com.example.feelbetter
+package com.example.feelbetter.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.feelbetter.R
 
 
 /**
