@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.feelbetter.R
+import com.example.feelbetter.firestore.FirestoreClass
+import com.example.feelbetter.models.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
@@ -51,14 +53,15 @@ class SignupActivity : AppCompatActivity() {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
                         Toast.makeText(this, "You are registered successfully.", Toast.LENGTH_SHORT)
                             .show()
+                        val user = User(
+                            firebaseUser.uid,
+                            findViewById<TextView>(R.id.signUpUsername).text.toString(),
+                            findViewById<TextView>(R.id.signUpUsername).text.toString(),
+                            email
+                        )
 
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.flags =
-                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        intent.putExtra("user_id", firebaseUser.uid)
-                        intent.putExtra("email", email)
-                        startActivity(intent)
-                        finish()
+                        FirestoreClass().registerUser(this, user)
+                        userRegistrationSuccess()
                     } else {
                         Toast.makeText(
                             this,
@@ -81,5 +84,13 @@ class SignupActivity : AppCompatActivity() {
 
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 
+    }
+
+    fun userRegistrationSuccess() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }

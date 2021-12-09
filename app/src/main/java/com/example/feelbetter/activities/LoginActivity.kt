@@ -8,8 +8,11 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import com.example.feelbetter.R
+import com.example.feelbetter.firestore.FirestoreClass
+import com.example.feelbetter.models.User
 import com.google.firebase.auth.FirebaseAuth
 
 /**
@@ -62,13 +65,8 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "You are logged in successfully.", Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-                    intent.putExtra("email", email)
-                    startActivity(intent)
-                    finish()
+//                    val intent = Intent(this, MainActivity::class.java)
+                    FirestoreClass().getUserDetails(this)
                 } else {
                     Toast.makeText(
                         this,
@@ -87,6 +85,12 @@ class LoginActivity : AppCompatActivity() {
 
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 
+    }
+
+    fun userLoggedInSuccess(user: User) {
+        Log.i("First Name", user.firstNAme)
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
 
