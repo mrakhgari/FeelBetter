@@ -1,10 +1,11 @@
-package com.example.feelbetter
+package com.example.feelbetter.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.feelbetter.R
 
 class TodoFragment : Fragment() {
 

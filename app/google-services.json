@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1037521983594",
+    "project_id": "feelbetter-1cbed",
+    "storage_bucket": "feelbetter-1cbed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037521983594:android:94d40822e3413870261213",
+        "android_client_info": {
+          "package_name": "com.example.feelbetter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037521983594-t35mf04srbscjmrk3k5u68r20d4l1cfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQPK1hRU-r0LEAMxs6nkr3I3aqn97bOck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037521983594-t35mf04srbscjmrk3k5u68r20d4l1cfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
