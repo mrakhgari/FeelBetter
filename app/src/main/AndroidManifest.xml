@@ -28,7 +28,8 @@
             android:exported="true" />
         <activity
             android:name=".activities.StartActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".activities.MainActivity"
             android:exported="true" />
