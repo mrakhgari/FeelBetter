@@ -10,23 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
-            android:name=".SignupActivity"
-            android:exported="true" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".StartActivity"
-            android:exported="true">
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:name=".activities.SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.StartActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

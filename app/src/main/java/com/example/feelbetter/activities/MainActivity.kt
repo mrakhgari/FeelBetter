@@ -1,9 +1,10 @@
-package com.example.feelbetter
+package com.example.feelbetter.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
-import com.example.feelbetter.datasets.InspiringContentDataset
+import com.example.feelbetter.R
+import com.example.feelbetter.adapters.TabPageAdaptor
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 

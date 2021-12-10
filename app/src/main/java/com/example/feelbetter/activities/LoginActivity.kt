@@ -1,4 +1,4 @@
-package com.example.feelbetter
+package com.example.feelbetter.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,10 +8,9 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.content.Intent
-import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.widget.Toast
+import com.example.feelbetter.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 /**
  * @mgh

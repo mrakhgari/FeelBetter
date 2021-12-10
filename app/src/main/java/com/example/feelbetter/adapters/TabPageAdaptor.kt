@@ -1,4 +1,4 @@
-package com.example.feelbetter
+package com.example.feelbetter.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
