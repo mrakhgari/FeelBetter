@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.app.Activity
+import android.content.Intent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import android.content.Intent
 import android.widget.Toast
 import com.example.feelbetter.R
 import com.google.firebase.auth.FirebaseAuth
+
 
 /**
  * @mgh
@@ -25,6 +26,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val scale = resources.displayMetrics.density
+        val padding_5dp = (5 * scale + 0.5f).toInt()
+        val padding_40dp = (40 * scale + 0.5f).toInt()
+        val email :EditText = findViewById(R.id.loginEmail)
+        email.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        val pass :EditText = findViewById(R.id.loginPassword)
+        pass.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
 
 //        hideSoftKeyboard(this)
         loginClick()
