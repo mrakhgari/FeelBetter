@@ -8,8 +8,88 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ListView
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="500dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/task_shape"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="100dp"
+                android:padding="10dp"
+                android:text="Memory Title"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="20dp"
+                android:text="12/1/2021"
+                android:textColor="@color/white"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/task_shape"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="100dp"
+                android:padding="10dp"
+                android:text="Memory Title"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="20dp"
+                android:text="12/2/2021"
+                android:textColor="@color/white"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="300dp"
+        >
+
+        <Button
+            android:id="@+id/memory_add_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="+"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
