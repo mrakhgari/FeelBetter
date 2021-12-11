@@ -8,26 +8,15 @@
     android:background="@drawable/template2"
     android:onClick="hideKeyboard">
 
-
-    <!-- INPUT -->
-
-    <!-- ICON -->
-
-
-
-
-
-
-    <TextView
+    <com.example.feelbetter.utils.MSPTextViewBold
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginTop="232dp"
-        android:fontFamily="@font/sofia"
-        android:text="Sign Up"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/login_header_text_size"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -36,7 +25,7 @@
         android:id="@+id/textView4"
         android:layout_width="93dp"
         android:layout_height="92dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="212dp"
 
         android:background="@drawable/circle"
@@ -54,12 +43,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpUsername"
-        android:hint="enter your name"
+        android:hint="@string/enter_your_name"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:paddingLeft="50dp"
+        android:paddingStart="50dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="320dp"
         android:layout_marginEnd="56dp"
@@ -71,10 +60,10 @@
         tools:ignore="MissingConstraints" />
 
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpEmail"
-        android:hint="enter your email"
-        android:paddingLeft="50dp"
+        android:hint="@string/enter_your_email"
+        android:paddingStart="50dp"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="63dp"
@@ -89,10 +78,10 @@
         tools:ignore="MissingConstraints" />
 
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpPassword"
-        android:hint="create new password"
-        android:paddingLeft="50dp"
+        android:hint="@string/create_new_password"
+        android:paddingStart="50dp"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="63dp"
@@ -109,12 +98,12 @@
 
 
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpDate"
         android:hint="yyyy-mm-dd"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:paddingLeft="50dp"
+        android:paddingStart="50dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="500dp"
         android:layout_marginEnd="56dp"
@@ -128,18 +117,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <com.example.feelbetter.utils.MSPButton
         android:id="@+id/signUp"
         android:layout_width="182dp"
         android:layout_height="53dp"
         android:layout_marginStart="115dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="114dp"
-        android:background="@drawable/rounded_edit_text"
-        android:fontFamily="@font/pridi_light"
-        android:text="Sign Up"
+        android:background="@drawable/button_background"
+        android:text="@string/sign_up"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

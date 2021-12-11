@@ -11,5 +11,11 @@
     <string name="inspiring_desc_1">Draw your dreams desc</string>
     <string name="inspiring_desc_2">Draw your dreams desc</string>
     <string name="inspiring_desc_3">Draw your dreams desc</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="create_new_password">Create new password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="enter_your_password">Enter your password</string>
 
 </resources>

@@ -11,7 +11,7 @@ class MSPEditText(context: Context, attrs: AttributeSet) : AppCompatEditText(con
     }
 
     private fun applyFont() {
-        val typeFace: Typeface = Typeface.createFromAsset(context.assets, "Montserrat-Bold.ttf")
+        val typeFace: Typeface = Typeface.createFromAsset(context.assets, "Montserrat-Regular.ttf")
         setTypeface(typeFace)
     }
 }

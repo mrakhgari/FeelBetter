@@ -9,17 +9,15 @@
     android:onClick="hideKeyboard">
 
 
-    <TextView
+    <com.example.feelbetter.utils.MSPTextViewBold
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="164dp"
         android:layout_marginTop="232dp"
-        android:fontFamily="@font/sofia"
-        android:text="Login"
-        android:textSize="36sp"
+        android:text="@string/login"
+        android:textSize="@dimen/login_header_text_size"
 
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -47,12 +45,12 @@
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
 
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/loginEmail"
         android:layout_width="292dp"
         android:layout_height="50dp"
-        android:hint="enter your email"
-        android:paddingLeft="50dp"
+        android:hint="@string/enter_your_email"
+        android:paddingStart="50dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="56dp"
@@ -64,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
+    <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/loginPassword"
         android:layout_width="292dp"
         android:layout_height="50dp"
@@ -72,28 +70,27 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/rounded_edit_text"
-        android:hint="enter your password"
+        android:hint="@string/enter_your_password"
         android:inputType="textPassword"
-        android:paddingLeft="50dp"
+        android:paddingStart="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginEmail"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <com.example.feelbetter.utils.MSPButton
         android:id="@+id/login"
         android:layout_width="182dp"
         android:layout_height="53dp"
         android:layout_marginStart="101dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="128dp"
-        android:background="@drawable/rounded_edit_text"
-        android:fontFamily="@font/pridi_light"
-        android:text="Login"
-        android:textSize="24sp"
-
-        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword"

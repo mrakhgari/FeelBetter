@@ -2,5 +2,10 @@
 <resources>
     <dimen name="splash_title_text_size">35sp</dimen>
     <dimen name="button_background_radius">10dp</dimen>
+    <dimen name="login_header_text_size">26sp</dimen>
+    <dimen name="register_header_text_size">26sp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="bold_header_text_size">30sp</dimen>
+
 
 </resources>

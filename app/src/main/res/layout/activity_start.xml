@@ -19,43 +19,37 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.example.feelbetter.utils.MSPButton
         android:id="@+id/startSignUp"
         android:layout_width="240dp"
         android:layout_height="60dp"
         android:layout_marginStart="87dp"
         android:layout_marginTop="166dp"
-        android:backgroundTint="#3C0A6D"
-        android:fontFamily="@font/pridi_light"
+        android:background="@drawable/button_background"
         android:shadowRadius="1"
         android:text="Sign Up"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="@dimen/button_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
+    <com.example.feelbetter.utils.MSPTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="219dp"
-        android:fontFamily="@font/rosario"
         android:text="It's Time to "
-        android:textSize="22sp"
-        android:textStyle="normal"
+        android:textSize="13sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.example.feelbetter.utils.MSPTextViewBold
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:fontFamily="@font/sofia"
         android:text="FeelBetter"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        android:textSize="@dimen/bold_header_text_size"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -69,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
 
-    <TextView
+    <com.example.feelbetter.utils.MSPTextView
         android:id="@+id/startLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
