@@ -6,16 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.feelbetter.R
 import com.example.feelbetter.firestore.FirestoreClass
 import com.example.feelbetter.models.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+
 
 
 /**
@@ -28,6 +27,19 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+        val scale = resources.displayMetrics.density
+        val padding_5dp = (5 * scale + 0.5f).toInt()
+        val padding_40dp = (40 * scale + 0.5f).toInt()
+        val email :EditText = findViewById(R.id.signUpEmail)
+        email.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        val pass :EditText = findViewById(R.id.signUpPassword)
+        pass.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        val user :EditText = findViewById(R.id.signUpUsername)
+        user.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        val date :EditText = findViewById(R.id.signUpDate)
+        date.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+
+
 //        hideKeyboard(this)
         signUpClick()
     }

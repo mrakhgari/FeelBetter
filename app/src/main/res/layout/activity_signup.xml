@@ -9,6 +9,15 @@
     android:onClick="hideKeyboard">
 
 
+    <!-- INPUT -->
+
+    <!-- ICON -->
+
+
+
+
+
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -18,8 +27,6 @@
         android:fontFamily="@font/sofia"
         android:text="Sign Up"
         android:textSize="36sp"
-
-
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,10 +45,9 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/FeelBetterLogo"
         android:layout_width="88dp"
         android:layout_height="89dp"
-
         android:layout_marginStart="60dp"
         android:layout_marginTop="212dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +56,10 @@
 
     <EditText
         android:id="@+id/signUpUsername"
+        android:hint="enter your name"
         android:layout_width="292dp"
         android:layout_height="50dp"
+        android:paddingLeft="50dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="320dp"
         android:layout_marginEnd="56dp"
@@ -65,6 +73,8 @@
 
     <EditText
         android:id="@+id/signUpEmail"
+        android:hint="enter your email"
+        android:paddingLeft="50dp"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="63dp"
@@ -72,15 +82,17 @@
         android:layout_marginEnd="56dp"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
-        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+
     <EditText
         android:id="@+id/signUpPassword"
+        android:hint="create new password"
+        android:paddingLeft="50dp"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="63dp"
@@ -95,17 +107,21 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+
+
     <EditText
         android:id="@+id/signUpDate"
-
+        android:hint="yyyy-mm-dd"
         android:layout_width="292dp"
         android:layout_height="50dp"
+        android:paddingLeft="50dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="500dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:inputType="date"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,11 +142,61 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpDate"
         tools:ignore="MissingConstraints" />
 
 
+
+    <ImageView
+        android:id="@+id/email_icon"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="15dp"
+        android:padding="3dp"
+        android:src="@drawable/email2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpUsername"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageView
+        android:id="@+id/calender_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="20dp"
+        android:padding="3dp"
+        android:src="@drawable/calender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPassword"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/lock_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="15dp"
+        android:padding="3dp"
+        android:src="@drawable/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmail"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/user_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="22dp"
+        android:padding="3dp"
+        android:src="@drawable/user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

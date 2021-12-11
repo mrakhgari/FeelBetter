@@ -46,55 +46,86 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
 
+
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="292dp"
-
         android:layout_height="50dp"
+        android:hint="enter your email"
+        android:paddingLeft="50dp"
         android:layout_marginStart="63dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="340dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/rounded_edit_text"
+        android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
 
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="292dp"
         android:layout_height="50dp"
         android:layout_marginStart="63dp"
-        android:layout_marginTop="324dp"
-        android:ems="10"
-        android:inputType="textPassword"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/rounded_edit_text"
+        android:hint="enter your password"
+        android:inputType="textPassword"
+        android:paddingLeft="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmail"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="182dp"
         android:layout_height="53dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="114dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="128dp"
         android:background="@drawable/rounded_edit_text"
         android:fontFamily="@font/pridi_light"
         android:text="Login"
         android:textSize="24sp"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmail"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
         tools:ignore="MissingConstraints" />
 
+    <ImageView
+        android:id="@+id/email_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="348dp"
+        android:padding="3dp"
+        android:paddingLeft="20sp"
+
+        android:paddingRight="20sp"
+
+        android:src="@drawable/email2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/lock_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="20dp"
+        android:padding="3dp"
+        android:src="@drawable/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmail"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
