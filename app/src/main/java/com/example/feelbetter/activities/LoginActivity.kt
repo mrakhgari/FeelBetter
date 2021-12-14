@@ -9,6 +9,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.example.feelbetter.R
 import com.example.feelbetter.firestore.FirestoreClass
@@ -39,6 +40,11 @@ class LoginActivity : BaseActivity() {
 
 //        hideSoftKeyboard(this)
         loginClick()
+        val forgotPassword: TextView = findViewById(R.id.forget_password)
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

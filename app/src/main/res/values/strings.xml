@@ -18,5 +18,12 @@
     <string name="login">Login</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="please_wait">Please wait&#8230;</string>
+    <string name="forget_password">Forgot password?</string>
+    <string name="title_forget_password">FORGOT?</string>
+    <string name="btn_lbl_submit">Submit</string>
+    <string name="forget_password_title_description">Enter your e-mail address we\'ll send you an email to reset your password</string>
+    <string name="err_msg_enter_email">"Please enter the e-mail address. "</string>
+    <string name="email_sent_success">Email sent successfully to reset your password</string>
+
 
 </resources>
