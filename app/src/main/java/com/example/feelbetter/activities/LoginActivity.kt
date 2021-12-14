@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
  * TODO: adding logo and a placeholder to edittext
  */
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

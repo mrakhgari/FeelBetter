@@ -16,28 +16,29 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-
 /**
  * @mgh
  * sign up page
  *
  * TODO: adding logo and a placeholder to edittext
  */
-class SignupActivity : AppCompatActivity() {
+class SignupActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         val scale = resources.displayMetrics.density
         val padding_5dp = (5 * scale + 0.5f).toInt()
         val padding_40dp = (40 * scale + 0.5f).toInt()
-        val email :EditText = findViewById(R.id.signUpEmail)
-        email.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
-        val pass :EditText = findViewById(R.id.signUpPassword)
-        pass.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
-        val user :EditText = findViewById(R.id.signUpUsername)
-        user.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
-        val date :EditText = findViewById(R.id.signUpDate)
-        date.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        showMessageSnackBar("You are registered successfully")
+
+        val email: EditText = findViewById(R.id.signUpEmail)
+        email.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
+        val pass: EditText = findViewById(R.id.signUpPassword)
+        pass.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
+        val user: EditText = findViewById(R.id.signUpUsername)
+        user.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
+        val date: EditText = findViewById(R.id.signUpDate)
+        date.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
 
 
 //        hideKeyboard(this)
@@ -63,8 +64,7 @@ class SignupActivity : AppCompatActivity() {
                     // if the registration is successfully done
                     if (task.isSuccessful) {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
-                        Toast.makeText(this, "You are registered successfully.", Toast.LENGTH_SHORT)
-                            .show()
+                        showMessageSnackBar("You are registered successfully")
                         val user = User(
                             firebaseUser.uid,
                             findViewById<TextView>(R.id.signUpUsername).text.toString(),
@@ -75,12 +75,7 @@ class SignupActivity : AppCompatActivity() {
                         FirestoreClass().registerUser(this, user)
                         userRegistrationSuccess()
                     } else {
-                        Toast.makeText(
-                            this,
-                            task.exception!!.message.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-
+                        showMessageSnackBar(task.exception!!.message.toString(), true)
                     }
                 }
             )
