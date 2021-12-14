@@ -17,5 +17,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
     <string name="enter_your_password">Enter your password</string>
+    <string name="please_wait">Please wait&#8230;</string>
 
 </resources>

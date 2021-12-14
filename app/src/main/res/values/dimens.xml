@@ -6,6 +6,9 @@
     <dimen name="register_header_text_size">26sp</dimen>
     <dimen name="button_text_size">20sp</dimen>
     <dimen name="bold_header_text_size">30sp</dimen>
-
+    <dimen name="progress_dialog_content_padding">10dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="progress_text_margin_start">16dp</dimen>
+    <dimen name="progress_text_size">16sp</dimen>
 
 </resources>

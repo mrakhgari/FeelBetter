@@ -32,10 +32,10 @@ class LoginActivity : BaseActivity() {
         val scale = resources.displayMetrics.density
         val padding_5dp = (5 * scale + 0.5f).toInt()
         val padding_40dp = (40 * scale + 0.5f).toInt()
-        val email :EditText = findViewById(R.id.loginEmail)
-        email.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
-        val pass :EditText = findViewById(R.id.loginPassword)
-        pass.setPadding(padding_40dp,padding_5dp,padding_5dp,padding_5dp)
+        val email: EditText = findViewById(R.id.loginEmail)
+        email.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
+        val pass: EditText = findViewById(R.id.loginPassword)
+        pass.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
 
 //        hideSoftKeyboard(this)
         loginClick()
@@ -63,24 +63,14 @@ class LoginActivity : BaseActivity() {
 
     //checks whether the user has registered before
     private fun validateInputData(email: String, password: String): Boolean {
-//
-//        if (email.toString() == "admin" && password.toString() == "admin") {
-//            return true
-//        }
-//        return false
+        showProgressDialog(resources.getString(R.string.please_wait))
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
+                hideProgressDialog()
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "You are logged in successfully.", Toast.LENGTH_SHORT)
-                        .show()
-//                    val intent = Intent(this, MainActivity::class.java)
                     FirestoreClass().getUserDetails(this)
                 } else {
-                    Toast.makeText(
-                        this,
-                        task.exception!!.message.toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showMessageSnackBar(task.exception!!.message.toString(), true)
                 }
             }
         return false

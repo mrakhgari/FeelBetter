@@ -29,7 +29,6 @@ class SignupActivity : BaseActivity() {
         val scale = resources.displayMetrics.density
         val padding_5dp = (5 * scale + 0.5f).toInt()
         val padding_40dp = (40 * scale + 0.5f).toInt()
-        showMessageSnackBar("You are registered successfully")
 
         val email: EditText = findViewById(R.id.signUpEmail)
         email.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
@@ -57,10 +56,11 @@ class SignupActivity : BaseActivity() {
     private fun storeData(): Boolean {
         val email: String = findViewById<TextView>(R.id.signUpEmail).text.toString()
         val password: String = findViewById<TextView>(R.id.signUpPassword).text.toString()
-
+        showProgressDialog(resources.getString(R.string.please_wait))
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(
                 OnCompleteListener<AuthResult> { task ->
+                    hideProgressDialog()
                     // if the registration is successfully done
                     if (task.isSuccessful) {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
