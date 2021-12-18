@@ -31,7 +31,6 @@ import java.util.*
  * TODO: adding logo and a placeholder to edittext
  */
 class SignupActivity : BaseActivity() {
-    val dateRegex = Regex("\\d{4}-\\d{2}-\\d{2}")
     var datePickerDialog: DatePickerDialog? = null
     lateinit var dateButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -140,18 +139,11 @@ class SignupActivity : BaseActivity() {
                 false
             }
 
-            TextUtils.isEmpty(signUpDate.text.toString().trim{ it <= ' '}) -> {
-                showMessageSnackBar(resources.getString(R.string.err_msg_enter_date) , true)
-                false
-            }
             TextUtils.isEmpty(signUpPassword.text.toString().trim{ it <= ' '}) -> {
                 showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_password) , true)
                 false
             }
-            !signUpDate.text.toString().matches(dateRegex) ->{
-                showMessageSnackBar(resources.getString(R.string.err_msg_enter_date) , true)
-                false
-            }
+
 
             else -> true
 
