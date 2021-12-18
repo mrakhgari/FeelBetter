@@ -1,7 +1,10 @@
 package com.example.feelbetter.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.example.feelbetter.R
 import com.example.feelbetter.adapters.TabPageAdaptor
@@ -13,6 +16,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupTabBar()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        var inflater = menuInflater
+        inflater.inflate(R.menu.main_menu , menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            val intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupTabBar() {
