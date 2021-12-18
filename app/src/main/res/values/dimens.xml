@@ -13,5 +13,12 @@
     <dimen name="forget_password_end_padding">54sp</dimen>
     <dimen name="forget_password_title_description_text_size">14sp</dimen>
     <dimen name="forget_password_title_text_size">26sp</dimen>
+    <dimen name="login_and_signup_fields_width">292dp</dimen>
+    <dimen name="login_and_signup_fields_height">50dp</dimen>
+    <dimen name="login_and_signup_fields_margin_start">63dp</dimen>
+    <dimen name="login_and_signup_fields_margin_end">56dp</dimen>
+    <dimen name="login_and_signup_fields_padding_start">50dp</dimen>
+    <dimen name="login_and_signup_fields_padding_end">5dp</dimen>
+
 
 </resources>

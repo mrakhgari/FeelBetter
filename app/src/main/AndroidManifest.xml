@@ -13,8 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
+            android:name=".activities.MainActivity2"
+            android:exported="true" />
+        <activity
             android:name=".activities.ForgetPasswordActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.BaseActivity"
             android:exported="true" />
@@ -31,10 +34,13 @@
         </activity>
         <activity
             android:name=".activities.SignupActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.StartActivity"
             android:exported="true"

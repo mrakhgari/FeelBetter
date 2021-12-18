@@ -23,7 +23,7 @@ class ForgetPasswordActivity : BaseActivity() {
         btn_submit.setOnClickListener {
             val email: String = til_email.text.toString().trim { it <= ' ' }
             if (email.isEmpty()) {
-                showMessageSnackBar(resources.getString(R.string.err_msg_enter_email), true)
+                showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_email), true)
             } else {
                 showProgressDialog(resources.getString(R.string.please_wait))
                 FirebaseAuth.getInstance().sendPasswordResetEmail(email)

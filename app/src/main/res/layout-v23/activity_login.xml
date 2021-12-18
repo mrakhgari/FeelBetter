@@ -40,7 +40,6 @@
         android:layout_height="89dp"
         android:layout_marginStart="65dp"
         android:layout_marginTop="212dp"
-        android:contentDescription="@string/FBlogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
@@ -52,7 +51,6 @@
         android:layout_height="@dimen/login_and_signup_fields_height"
         android:hint="@string/loginEmail"
         android:paddingStart="@dimen/login_and_signup_fields_padding_start"
-        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"
         android:layout_marginStart="@dimen/login_and_signup_fields_margin_start"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="56dp"
@@ -75,7 +73,6 @@
         android:hint="@string/loginPassword"
         android:inputType="textPassword"
         android:paddingStart="@dimen/login_and_signup_fields_padding_start"
-        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

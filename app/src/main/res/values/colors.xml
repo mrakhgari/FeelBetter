@@ -12,6 +12,7 @@
     <color name="purple">#8E2DE2</color>
     <color name="light_purple">#FFA47CD6</color>
     <color name="gray">#AFAAAA</color>
+    <color name="dark_gray">#FF423F3F</color>
     <color name="colorSnackBarError">#8BC34A</color>
     <color name="colorSnackBarSuccess">#F72400</color>
 

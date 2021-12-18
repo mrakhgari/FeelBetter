@@ -4,17 +4,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Build
+import android.text.TextUtils
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.util.Log
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import com.example.feelbetter.R
 import com.example.feelbetter.firestore.FirestoreClass
 import com.example.feelbetter.models.User
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_signup.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -25,16 +33,28 @@ import com.google.firebase.auth.FirebaseAuth
  */
 
 class LoginActivity : BaseActivity() {
-
-
+    var datePickerDialog: DatePickerDialog? = null
+    lateinit var dateButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
+            )
+        }
+
         val scale = resources.displayMetrics.density
         val padding_5dp = (5 * scale + 0.5f).toInt()
         val padding_40dp = (40 * scale + 0.5f).toInt()
         val email: EditText = findViewById(R.id.loginEmail)
         email.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
+        email.setHint("Enter your email");
         val pass: EditText = findViewById(R.id.loginPassword)
         pass.setPadding(padding_40dp, padding_5dp, padding_5dp, padding_5dp)
 
@@ -45,7 +65,11 @@ class LoginActivity : BaseActivity() {
             val intent = Intent(this, ForgetPasswordActivity::class.java)
             startActivity(intent)
         }
+
+
     }
+
+
 
 
     //listener for clicking signup button that sends the user to login activity
@@ -85,7 +109,7 @@ class LoginActivity : BaseActivity() {
     //method for making the keypad disappeared after clicking outside the texts
     fun hideKeyboard(view: View) {
         val inputMethodManager: InputMethodManager =
-            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 
@@ -96,6 +120,9 @@ class LoginActivity : BaseActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
+
+
+
 
 
 }

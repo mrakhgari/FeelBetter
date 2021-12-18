@@ -11,19 +11,34 @@
     <string name="inspiring_desc_1">Draw your dreams desc</string>
     <string name="inspiring_desc_2">Draw your dreams desc</string>
     <string name="inspiring_desc_3">Draw your dreams desc</string>
-    <string name="enter_your_name">Enter your name</string>
-    <string name="enter_your_email">Enter your email</string>
-    <string name="create_new_password">Create new password</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
-    <string name="enter_your_password">Enter your password</string>
+    <string name="loginEmail">loginEmail</string>
+    <string name="loginPassword">loginPassword</string>
     <string name="please_wait">Please wait&#8230;</string>
     <string name="forget_password">Forgot password?</string>
     <string name="title_forget_password">FORGOT?</string>
     <string name="btn_lbl_submit">Submit</string>
     <string name="forget_password_title_description">Enter your e-mail address we\'ll send you an email to reset your password</string>
-    <string name="err_msg_enter_email">"Please enter the e-mail address. "</string>
     <string name="email_sent_success">Email sent successfully to reset your password</string>
+    <string name="userIcon">userIcon</string>
+    <string name="lockicon">lockIcon</string>
+    <string name="calendericon">calenderIcon</string>
+    <string name="emailicon">emailIcon</string>
+    <string name="signupDate">yyyy-mm-dd</string>
+    <string name="FBlogo">logo</string>
+
+
+    <string name="err_msg_enter_first_name">"Please enter your first name. "</string>
+    <string name="err_msg_enter_last_name">"Please enter your last name. "</string>
+    <string name="err_msg_enter_new_email">"Please enter an e-mail address. "</string>
+    <string name="err_msg_enter_new_password">"Please enter a password. "</string>
+    <string name="err_msg_enter_date">"Please enter your birthday. "</string>
+    <string name="err_msg_date_format">"Date entered does not have a correct format "</string>
+    <string name="msg_register_successful">"You are registered successfully"</string>
+    <string name="signupName">signupName</string>
+    <string name="birthday">Button</string>
+    <string name="enter_your_birthday">enter your birthday</string>
 
 
 </resources>

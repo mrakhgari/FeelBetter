@@ -8,6 +8,19 @@
     android:background="@drawable/template2"
     android:onClick="hideKeyboard">
 
+    <ImageView
+        android:id="@+id/calender_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/calendericon"
+        android:padding="3dp"
+        android:src="@drawable/calender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPassword"
+        tools:ignore="MissingConstraints" />
+
     <com.example.feelbetter.utils.MSPTextViewBold
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -39,19 +52,21 @@
         android:layout_height="89dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="212dp"
+        android:contentDescription="@string/FBlogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_2021_11_08_22_16_45" />
 
     <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpUsername"
-        android:hint="@string/enter_your_name"
-        android:layout_width="292dp"
-        android:layout_height="50dp"
-        android:paddingStart="50dp"
-        android:layout_marginStart="63dp"
+        android:hint="@string/signupName"
+        android:layout_width="@dimen/login_and_signup_fields_width"
+        android:layout_height="@dimen/login_and_signup_fields_height"
+        android:paddingStart="@dimen/login_and_signup_fields_padding_start"
+        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"
+        android:layout_marginStart="@dimen/login_and_signup_fields_margin_start"
         android:layout_marginTop="320dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="@dimen/login_and_signup_fields_margin_end"
         android:background="@drawable/rounded_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -62,13 +77,14 @@
 
     <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpEmail"
-        android:hint="@string/enter_your_email"
-        android:paddingStart="50dp"
-        android:layout_width="292dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="63dp"
+        android:hint="@string/loginEmail"
+        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"
+        android:paddingStart="@dimen/login_and_signup_fields_padding_start"
+        android:layout_width="@dimen/login_and_signup_fields_width"
+        android:layout_height="@dimen/login_and_signup_fields_height"
+        android:layout_marginStart="@dimen/login_and_signup_fields_margin_start"
         android:layout_marginTop="380dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="@dimen/login_and_signup_fields_margin_end"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,13 +96,14 @@
 
     <com.example.feelbetter.utils.MSPEditText
         android:id="@+id/signUpPassword"
-        android:hint="@string/create_new_password"
-        android:paddingStart="50dp"
-        android:layout_width="292dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="63dp"
+        android:hint="@string/loginPassword"
+        android:paddingStart="@dimen/login_and_signup_fields_padding_start"
+        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"
+        android:layout_width="@dimen/login_and_signup_fields_width"
+        android:layout_height="@dimen/login_and_signup_fields_height"
+        android:layout_marginStart="@dimen/login_and_signup_fields_margin_start"
         android:layout_marginTop="440dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="@dimen/login_and_signup_fields_margin_end"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:inputType="textPassword"
@@ -98,54 +115,71 @@
 
 
 
-    <com.example.feelbetter.utils.MSPEditText
-        android:id="@+id/signUpDate"
-        android:hint="yyyy-mm-dd"
-        android:layout_width="292dp"
-        android:layout_height="50dp"
-        android:paddingStart="50dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="56dp"
-        android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:inputType="date"
+<!--    <com.example.feelbetter.utils.MSPEditText-->
+<!--        android:id="@+id/signUpDate"-->
+<!--        android:hint="@string/signupDate"-->
+<!--        android:layout_width="@dimen/login_and_signup_fields_width"-->
+<!--        android:layout_height="@dimen/login_and_signup_fields_height"-->
+<!--        android:paddingStart="@dimen/login_and_signup_fields_padding_start"-->
+<!--        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"-->
+<!--        android:layout_marginStart="@dimen/login_and_signup_fields_margin_start"-->
+<!--        android:layout_marginTop="500dp"-->
+<!--        android:layout_marginEnd="@dimen/login_and_signup_fields_margin_end"-->
+<!--        android:background="@drawable/rounded_edit_text"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="date"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+<!--    <Button-->
+<!--        android:id="@+id/signUpDate"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="@dimen/login_and_signup_fields_height"-->
+<!--        android:layout_marginStart="100dp"-->
+<!--        android:layout_marginTop="496dp"-->
+<!--        android:layout_marginEnd="@dimen/login_and_signup_fields_margin_end"-->
+
+<!--        android:paddingStart="@dimen/login_and_signup_fields_padding_start"-->
+<!--        android:paddingEnd="@dimen/login_and_signup_fields_padding_end"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--     />-->
+
 
     <com.example.feelbetter.utils.MSPButton
         android:id="@+id/signUp"
         android:layout_width="182dp"
         android:layout_height="53dp"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="114dp"
         android:background="@drawable/button_background"
         android:text="@string/sign_up"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpDate"
         tools:ignore="MissingConstraints" />
 
-
-
     <ImageView
         android:id="@+id/email_icon"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="67dp"
         android:layout_marginTop="15dp"
+        android:contentDescription="@string/emailicon"
         android:padding="3dp"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
         android:src="@drawable/email2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpUsername"
@@ -153,23 +187,12 @@
 
 
     <ImageView
-        android:id="@+id/calender_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="20dp"
-        android:padding="3dp"
-        android:src="@drawable/calender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPassword"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
         android:id="@+id/lock_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="67dp"
         android:layout_marginTop="15dp"
+        android:contentDescription="@string/lockicon"
         android:padding="3dp"
         android:src="@drawable/password"
         app:layout_constraintStart_toStartOf="parent"
@@ -182,10 +205,25 @@
         android:layout_height="35dp"
         android:layout_marginStart="67dp"
         android:layout_marginTop="22dp"
+        android:contentDescription="@string/userIcon"
         android:padding="3dp"
         android:src="@drawable/user"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="MissingConstraints" />
+
+    <com.example.feelbetter.utils.MSPButton
+        android:id="@+id/signUpDate"
+        android:layout_width="246dp"
+        android:layout_height="@dimen/login_and_signup_fields_height"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/my_button"
+        android:text="@string/enter_your_birthday"
+        android:textColor="@color/gray"
+        app:layout_constraintStart_toEndOf="@+id/calender_icon"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPassword"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
