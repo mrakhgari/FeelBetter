@@ -70,8 +70,6 @@ class LoginActivity : BaseActivity() {
     }
 
 
-
-
     //listener for clicking signup button that sends the user to login activity
     private fun loginClick() {
         val button: Button = findViewById(R.id.login)
@@ -117,12 +115,12 @@ class LoginActivity : BaseActivity() {
 
     fun userLoggedInSuccess(user: User) {
         Log.i("First Name", user.firstNAme)
-        startActivity(Intent(this, MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
         finish()
     }
-
-
-
 
 
 }

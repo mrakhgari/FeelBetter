@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.feelbetter.R
 import com.example.feelbetter.adapters.TabPageAdaptor
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,13 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         var inflater = menuInflater
-        inflater.inflate(R.menu.main_menu , menu)
+        inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.logout) {
+            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
         }
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val adaptor = TabPageAdaptor(this, tabLayout.tabCount)
         view_pager.adapter = adaptor
 
-        view_pager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+        view_pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 tabLayout.selectTab(tabLayout.getTabAt(position))
             }
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-            view_pager.currentItem = tab.position
+                view_pager.currentItem = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}

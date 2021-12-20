@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
-            android:name=".activities.MainActivity2"
-            android:exported="true" />
-        <activity
             android:name=".activities.ForgetPasswordActivity"
             android:exported="true" />
         <activity
