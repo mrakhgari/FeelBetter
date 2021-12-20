@@ -27,6 +27,8 @@ class SplashActivity : AppCompatActivity() {
             )
         }
 
+        val currentUser = FirebaseAuth.getInstance().currentUser
+
         @Suppress("DEPRECATION")
         Handler().postDelayed(
             {
