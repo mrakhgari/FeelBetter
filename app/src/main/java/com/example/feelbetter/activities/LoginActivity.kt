@@ -33,8 +33,6 @@ import java.util.*
  */
 
 class LoginActivity : BaseActivity() {
-    var datePickerDialog: DatePickerDialog? = null
-    lateinit var dateButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -74,7 +72,8 @@ class LoginActivity : BaseActivity() {
     private fun loginClick() {
         val button: Button = findViewById(R.id.login)
         button.setOnClickListener { // Perform action on click
-            getDate()
+            if(validationDetails())
+                 getDate()
         }
     }
 
@@ -122,5 +121,21 @@ class LoginActivity : BaseActivity() {
         finish()
     }
 
+    private fun validationDetails():Boolean{
+        return when {
+            TextUtils.isEmpty(signUpEmail.text.toString().trim{ it <= ' '}) -> {
+                showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_email) , true)
+                false
+            }
 
+            TextUtils.isEmpty(signUpPassword.text.toString().trim{ it <= ' '}) -> {
+                showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_password) , true)
+                false
+            }
+
+
+            else -> true
+
+        }
+    }
 }
