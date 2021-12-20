@@ -94,6 +94,7 @@ class SignupActivity : BaseActivity() {
                             firebaseUser.uid,
                             findViewById<TextView>(R.id.signUpUsername).text.toString(),
                             findViewById<TextView>(R.id.signUpUsername).text.toString(),
+                            findViewById<Button>(R.id.signUpDate).text.toString(),
                             email
                         )
 
