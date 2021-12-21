@@ -1,0 +1,39 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="10dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_app_logo"-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="70dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:src="@drawable/image_2021_11_08_22_16_45" />-->
+
+<!--        <com.example.feelbetter.utils.MSPTextViewBold-->
+<!--            android:id="@+id/notification_title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_toEndOf="@id/iv_app_logo"-->
+<!--            android:text="Title"-->
+<!--            android:textSize="@dimen/notification_title" />-->
+
+<!--        <com.example.feelbetter.utils.MSPTextView-->
+<!--            android:id="@+id/notification_description"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/notification_title"-->
+<!--            android:layout_toEndOf="@id/iv_app_logo"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:text="Description" />-->
+<!--    </RelativeLayout>-->
+
+
+<!--</RelativeLayout>-->

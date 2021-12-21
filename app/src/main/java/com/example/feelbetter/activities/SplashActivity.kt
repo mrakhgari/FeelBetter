@@ -11,6 +11,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.feelbetter.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {

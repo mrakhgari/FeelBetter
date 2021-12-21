@@ -122,13 +122,15 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun validationDetails():Boolean{
+        val editText: EditText = findViewById(R.id.loginEmail)
+        val editText2: EditText = findViewById(R.id.loginPassword)
         return when {
-            TextUtils.isEmpty(signUpEmail.text.toString().trim{ it <= ' '}) -> {
+            TextUtils.isEmpty(editText.text.toString().trim{ it <= ' '}) -> {
                 showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_email) , true)
                 false
             }
 
-            TextUtils.isEmpty(signUpPassword.text.toString().trim{ it <= ' '}) -> {
+            TextUtils.isEmpty(editText2.text.toString().trim{ it <= ' '}) -> {
                 showMessageSnackBar(resources.getString(R.string.err_msg_enter_new_password) , true)
                 false
             }

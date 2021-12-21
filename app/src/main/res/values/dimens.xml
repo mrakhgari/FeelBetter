@@ -19,6 +19,7 @@
     <dimen name="login_and_signup_fields_margin_end">56dp</dimen>
     <dimen name="login_and_signup_fields_padding_start">50dp</dimen>
     <dimen name="login_and_signup_fields_padding_end">5dp</dimen>
+    <dimen name="notification_title">20sp</dimen>
 
 
 </resources>
