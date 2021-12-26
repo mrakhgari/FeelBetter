@@ -1,118 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TodoFragment"
-    >
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:paddingHorizontal="75dp"
-        >
+    tools:context=".fragments.children.TodoFragment"
+    android:onClick="hideKeyboard">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="100dp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="All Tasks"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            />
-
-</LinearLayout>
-
-<View android:background="#000"
-      android:layout_width="match_parent"
-       android:layout_height="5dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/task_shape"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="100dp"
-                android:padding="10dp"
-                android:text="Task1"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/task_shape"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="100dp"
-                android:padding="10dp"
-                android:text="Task2"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="190dp"
-    android:layout_marginStart="300dp"
-    >
+    <EditText
+        android:id="@+id/todo_edit_text"
+        android:layout_width="387dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="500dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722" />
 
     <Button
-        android:id="@+id/text"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/round_button"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:text="+"
-        android:textSize="10sp" />
+        android:id="@+id/add_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="500dp"
+        android:text="@string/add_new_task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo_edit_text"
+        app:layout_constraintVertical_bias="0.0" />
 
-</LinearLayout>
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="409dp"
+        android:layout_height="490dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_todo" />
 
-</LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
