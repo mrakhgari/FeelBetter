@@ -39,6 +39,8 @@
     <string name="signupName">signupName</string>
     <string name="birthday">Button</string>
     <string name="enter_your_birthday">enter your birthday</string>
+    <string name="tasks">tasks</string>
+    <string name="add_new_task">add new task</string>
 
 
 </resources>

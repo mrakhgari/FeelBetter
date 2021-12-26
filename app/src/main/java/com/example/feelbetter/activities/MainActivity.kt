@@ -1,5 +1,6 @@
 package com.example.feelbetter.activities
 
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +8,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.example.feelbetter.R
 import com.example.feelbetter.adapters.TabPageAdaptor
+import com.example.feelbetter.fragments.children.DoneFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -84,4 +88,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
     }
+
+
+
 }
