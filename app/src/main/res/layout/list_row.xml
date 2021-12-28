@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15sp"
+    >
+    
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_marginBottom="2sp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="28sp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+
+        />
+
+    <ImageView
+        android:layout_width="22sp"
+        android:layout_height="22sp"
+        android:id="@+id/edit"
+        android:src="@drawable/edit"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/remove"
+        android:layout_marginRight="18sp"
+       />
+
+
+
+    <ImageView
+        android:layout_width="22sp"
+        android:layout_height="22sp"
+        android:id="@+id/remove"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="18sp"
+        android:src="@drawable/remove"
+        android:layout_alignParentRight="true"/>
+
+
+</RelativeLayout>

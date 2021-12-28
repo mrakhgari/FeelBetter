@@ -1,44 +1,39 @@
 package com.example.feelbetter.fragments.children;
 
-import android.app.Activity;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.example.feelbetter.R;
-import com.example.feelbetter.activities.MainActivity;
+import com.example.feelbetter.adapters.ListViewAdapter;
+
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TodoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TodoFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class TodoFragment extends Fragment{
 
 
     EditText ed;
     Button bt;
-    ListView lv;
-    ArrayList<String> todoList;
-    ArrayAdapter<String> adapter;
+    Button doneBt;
+    public static ListView lv;
+    public static ArrayList<String> todoList = new ArrayList<>();
+    public static ListViewAdapter adapter; //custom adaptor
+    static ArrayList tempDoneArrayList = new ArrayList();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,82 +70,89 @@ public class TodoFragment extends Fragment implements AdapterView.OnItemClickLis
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        tempDoneArrayList.clear();
         // Inflate the layout for this fragment
        View view =  inflater.inflate(R.layout.fragment_todo, container, false);
        ed = view.findViewById(R.id.todo_edit_text);
        bt = view.findViewById(R.id.add_todo);
+       doneBt = view.findViewById(R.id.done_Button);
        lv = view.findViewById(R.id.list_view);
-        todoList = new ArrayList<>();
-        adapter = new ArrayAdapter(getActivity() , android.R.layout.simple_list_item_multiple_choice, todoList);
-
+        lv.setFocusable(false);
+        lv.setItemsCanFocus(false);
+        adapter = new ListViewAdapter(getContext() , todoList);
         lv.setAdapter(adapter);
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        lv.setOnItemClickListener(this);
         onBtClick();
+        onDoneBtClick();
+
         return view;
     }
 
 
+    /**
+     * add new task button at the top of the page.
+     */
     public void onBtClick(){
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String result= ed.getText().toString();
-                CheckBox cb = new CheckBox(getContext());
-                cb.setText(result);
-                todoList.add(result);
-
-                adapter.notifyDataSetChanged();
+                if (result.equals("")){
+                    Toast.makeText(getContext() , "There is no task to be added" , Toast.LENGTH_LONG).show();
+                }
+                else {
+                    todoList.add(result);
+                    ed.setText("");
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String items = parent.getItemAtPosition(position).toString();
-        DoneFragment.doneList.add(items);
+    /**
+     * done button at the end of the fragment. replaces current fragment with DoneFragment
+     */
+    public void onDoneBtClick(){
+        doneBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                DoneFragment doneFragment = new DoneFragment();
+                bundle.putStringArrayList("key" , tempDoneArrayList);
+                doneFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, doneFragment).commit();
 
-//        FragmentManager fragmentManager = getChildFragmentManager();
-//        Fragment fragmentA = fragmentManager.findFragmentByTag("done_fragment");
-//        if (fragmentA == null) {
-//
-//            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&***********");
-//            DoneFragment done =new DoneFragment();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.add(R.id.done_fragment, done);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//        }
-//        Fragment fragmentA2 = fragmentManager.findFragmentByTag("done_fragment");
-//        if(fragmentA2 == null){
-//            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-//        }
-
-//            DoneFragment done =new DoneFragment();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.add(R.id.todo_fragment, done);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//            done.arrayList.add(items);
-//            done.adapter2.notifyDataSetChanged();
-//            // not exist
-//        } else {
-//            System.out.println("******************8");
-            // fragment exist
-//        }
-//        finish();
-//        doneFragment.arrayList.add(items.toString());
-////
-//        doneFragment.adapter2.notifyDataSetChanged();
-        Toast.makeText(getContext(), items , Toast.LENGTH_LONG).show();
-
+            }
+        });
     }
+
+
+    /**
+     * remove item from todoList
+     * @param remove
+     */
+    public static void removeItem(int remove){
+        tempDoneArrayList.add(todoList.get(remove));
+        todoList.remove(remove);
+        lv.setAdapter(adapter);
+    }
+
+    /**
+     * when the user edits pre tasks, this method updates that item
+     * @param position
+     * @param newData
+     */
+    public static void editItem(int position , String newData){
+        todoList.set(position , newData);
+        lv.setAdapter(adapter);
+    }
+
 
 
 }

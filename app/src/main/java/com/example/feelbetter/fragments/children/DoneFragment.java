@@ -8,17 +8,20 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.feelbetter.R;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -28,8 +31,10 @@ import java.util.ArrayList;
  */
 public class DoneFragment extends Fragment {
     ListView lv;
-//    KeepListService keepListService = new KeepListService();
+    Button todoBt;
+    TodoFragment todoFragment = new TodoFragment();
     public static ArrayList<String> doneList = new ArrayList<>();
+
     ArrayAdapter<String> adapter2 ;
 
 
@@ -70,19 +75,14 @@ public class DoneFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        System.out.println("******************************");
         System.out.println(doneList);
-//        doneList = KeepListService.doneList;
-//        System.out.println(doneList);
         adapter2.notifyDataSetChanged();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        System.out.println("****^^^^^^^^^^^****");
         System.out.println(doneList);
-//        doneList = KeepListService.doneList;
         adapter2.notifyDataSetChanged();
     }
 
@@ -95,15 +95,7 @@ public class DoneFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
-        System.out.println("*&&&&&&&&&&&&&&&&&&&77*");
-        System.out.println(doneList);
-//        doneList = KeepListService.doneList;
-        if (adapter2 != null)
-        adapter2.notifyDataSetChanged();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,14 +103,30 @@ public class DoneFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_done, container, false);
         lv = view.findViewById(R.id.done_list_view);
-        doneList.add("#######");
+        todoBt = view.findViewById(R.id.todo_button);
         adapter2 = new ArrayAdapter(getActivity() , android.R.layout.simple_list_item_1, doneList);
         lv.setAdapter(adapter2);
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        Bundle bundle = getArguments();
+        ArrayList<String> data= bundle.getStringArrayList("key");
+        System.out.println(data);
+        doneList.addAll(data);
+        adapter2.notifyDataSetChanged();
+        onTodoBtClick();
         return view;
 
 
     }
+
+    public void onTodoBtClick(){
+        todoBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, todoFragment).commit();
+            }
+        });
+    }
+
 
 
 }
