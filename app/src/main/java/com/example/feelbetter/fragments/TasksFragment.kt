@@ -10,14 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.viewpager.widget.ViewPager
 import com.example.feelbetter.R
-import com.example.feelbetter.fragments.children.DoneFragment
 import com.example.feelbetter.fragments.children.TodoFragment
-import com.example.feelbetter.models.SharedViewModel
 import com.google.android.material.tabs.TabLayout
 
 class TasksFragment : Fragment() {
 
-    var sharedViewModel : SharedViewModel?= null
     var tabLayout: TabLayout? = null
     var viewPager: ViewPager? = null
     var todoFragment = TodoFragment()
