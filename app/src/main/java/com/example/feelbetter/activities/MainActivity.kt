@@ -1,6 +1,5 @@
 package com.example.feelbetter.activities
 
-import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
@@ -10,14 +9,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.feelbetter.R
 import com.example.feelbetter.adapters.TabPageAdaptor
-import com.example.feelbetter.fragments.children.DoneFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -26,8 +23,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.EditText
 
 import android.view.MotionEvent
-
-
+import android.view.View
 
 
 class MainActivity : AppCompatActivity() {
@@ -105,6 +101,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      *when the user clicks anywhere except for the edittext box , keyboard will be closed
+     * this method is used in todoFragment. when the user creates new task
      */
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_DOWN) {

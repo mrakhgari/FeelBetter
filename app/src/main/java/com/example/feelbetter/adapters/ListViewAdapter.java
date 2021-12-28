@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Paint;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +17,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.example.feelbetter.R;
 import com.example.feelbetter.activities.MainActivity;
 import com.example.feelbetter.fragments.children.TodoFragment;
+import com.example.feelbetter.models.TodoItem;
 
 import java.util.ArrayList;
 
@@ -53,18 +57,35 @@ public class ListViewAdapter extends ArrayAdapter<String> {
 
             ImageView edit = convertView.findViewById(R.id.edit);
             ImageView remove = convertView.findViewById(R.id.remove);
+            ImageView done = convertView.findViewById(R.id.done);
 
             remove.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void onClick(View v) {
                     TodoFragment.removeItem(position);
                 }
             });
+            done.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                @Override
+                public void onClick(View v) {
+                    TodoFragment.doneItem(position);
+                }
+            });
+
             edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     manageEditDialog(layoutInflater , position);
 
+                }
+            });
+            name.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                @Override
+                public void onClick(View v) {
+                    detailDialog(layoutInflater , position);
                 }
             });
         }
@@ -80,10 +101,41 @@ public class ListViewAdapter extends ArrayAdapter<String> {
         builder.setView(customLayout);
         builder.setTitle("Edit dialog");
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 TodoFragment.editItem(position , text.getText().toString());
-                Toast.makeText(getContext(), text.getText().toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * when user clicks on todoItem dialog box will be opened to show task details
+     * @param layoutInflater
+     * @param position
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public  void detailDialog(LayoutInflater layoutInflater , int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.Base_V14_Theme_MaterialComponents_Dialog);
+        View customLayout = layoutInflater.inflate(R.layout.layout_detail_dialog , null);
+        TextView task = customLayout.findViewById(R.id.task_value);
+        TextView start = customLayout.findViewById(R.id.start_time_value);
+        TextView end = customLayout.findViewById(R.id.end_time_value);
+        TodoItem obj = TodoFragment.findObj(TodoFragment.todoList.get(position));
+        if(obj != null){
+            task.setText(obj.getTask());
+            start.setText(obj.getStartTime());
+            end.setText(obj.getDueTime());
+        }
+        builder.setView(customLayout);
+        builder.setTitle("Edit dialog");
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+             //nothing
             }
         });
         AlertDialog dialog = builder.create();

@@ -25,9 +25,8 @@ import java.util.Map;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoneFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * @author mgh
+ * fragment that show tasks which were done
  */
 public class DoneFragment extends Fragment {
     ListView lv;

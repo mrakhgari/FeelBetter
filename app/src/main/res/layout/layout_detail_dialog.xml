@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    tools:layout_editor_absoluteX="-37dp"
+    tools:layout_editor_absoluteY="32dp">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="308dp"
+        android:background="@drawable/layout_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/start_time_text"
+            android:layout_width="86dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="410dp"
+            android:text=" start time:"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/start_time_value"
+            android:layout_width="196dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="510dp"
+            android:text=" start time value:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/end_time_text"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="426dp"
+            android:text="end time:"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/task_text"
+            android:layout_width="47dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="426dp"
+            android:text="task:"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/end_time_value"
+            android:layout_width="195dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="426dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/task_value"
+            android:layout_width="282dp"
+            android:layout_height="124dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginBottom="356dp"
+            android:text="helloworld"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+    </FrameLayout>
+</RelativeLayout>
