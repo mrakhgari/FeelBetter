@@ -73,7 +73,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     fun updateNavigationUserDetails(user: User) {
         Glide.with(this).load(user.image).centerCrop().placeholder(R.drawable.ic_user_place_holder)
             .into(nav_user_image)
-        tv_username.text = user.firstNAme
+        tv_username.text = user.name
     }
 
     private fun setupActionBar() {

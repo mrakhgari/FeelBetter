@@ -41,24 +41,7 @@ class FirestoreClass {
     fun getUserDetails(activity: Activity) {
         mFirestore.collection(Constants.USERS).document(getCurrentUserId()).get()
             .addOnSuccessListener { document ->
-                Log.i(
-                    activity.javaClass.simpleName,
-                    document.toString()
-                )
-
                 val user = document.toObject(User::class.java)!!
-
-                val sharedPreferences = activity.getSharedPreferences(
-                    Constants.MYAPP_PREFERENCES,
-                    Context.MODE_PRIVATE
-                )
-
-                val editor: SharedPreferences.Editor= sharedPreferences.edit()
-
-                editor.putString(Constants.LOGGED_IN_USERNAME, "${user.firstNAme} ${user.lastName}}")
-
-                editor.apply()
-
                 when (activity) {
                     is LoginActivity -> {
                         activity.userLoggedInSuccess(user)

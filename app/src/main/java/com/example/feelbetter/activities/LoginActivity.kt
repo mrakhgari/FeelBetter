@@ -113,7 +113,7 @@ class LoginActivity : BaseActivity() {
     }
 
     fun userLoggedInSuccess(user: User) {
-        Log.i("First Name", user.firstNAme)
+        Log.i("First Name", user.name)
         val intent = Intent(this, MainActivity::class.java)
         intent.flags =
             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
