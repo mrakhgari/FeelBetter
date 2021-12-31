@@ -1,6 +1,10 @@
 package com.example.feelbetter.fragments
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,28 +12,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import androidx.viewpager.widget.ViewPager
 import com.example.feelbetter.R
 import com.example.feelbetter.activities.CreateTaskActivity
 import com.example.feelbetter.activities.DoneTasksActivity
-import com.example.feelbetter.adapters.DoneTasksItemAdapter
 import com.example.feelbetter.adapters.TasksItemAdapter
 import com.example.feelbetter.firestore.FirestoreClass
-import com.example.feelbetter.fragments.children.TodoFragment
 import com.example.feelbetter.models.Task
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
 class TasksFragment : Fragment() {
-
-    var tabLayout: TabLayout? = null
-    var viewPager: ViewPager? = null
-    var todoFragment = TodoFragment()
+    var taskList: ArrayList<Task> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,6 +50,7 @@ class TasksFragment : Fragment() {
 
     fun onCompletedTaskToUI(taskList: ArrayList<Task>) {
         if (taskList.size > 0) {
+            this.taskList = taskList
             rv_tasks_list.visibility = View.VISIBLE
             tv_no_task_available.visibility = View.GONE
 
@@ -70,7 +66,16 @@ class TasksFragment : Fragment() {
 
             adapter.setOnEditListener(object : TasksItemAdapter.OnEditListener {
                 override fun onClick(position: Int, model: Task) {
-                    model.documentId?.let { FirestoreClass().editTask(this@TasksFragment, it, "edited") }
+
+//                    manageEditDialog(this@TasksFragment, position)
+                    model.documentId?.let {
+                        FirestoreClass().editTask(
+                            this@TasksFragment,
+                            it,
+                            "edited"
+                        )
+                    }
+
                 }
             })
 
@@ -86,4 +91,8 @@ class TasksFragment : Fragment() {
             tv_no_task_available.visibility = View.VISIBLE
         }
     }
+
+    fun manageEditDialog(model: Task) {
+    }
+
 }

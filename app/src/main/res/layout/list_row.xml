@@ -26,15 +26,14 @@
 
         />
 
-    <ImageView
-        android:layout_width="22sp"
-        android:layout_height="22sp"
-        android:id="@+id/edit"
-        android:src="@drawable/edit"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/done"
-        android:layout_marginRight="12sp"
-       />
+<!--    <ImageView-->
+<!--        android:id="@+id/edit"-->
+<!--        android:layout_width="22sp"-->
+<!--        android:layout_height="22sp"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_marginRight="12sp"-->
+<!--        android:layout_toLeftOf="@+id/done"-->
+<!--        android:src="@drawable/edit" />-->
     <ImageView
         android:layout_width="22sp"
         android:layout_height="22sp"

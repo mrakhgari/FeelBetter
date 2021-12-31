@@ -3,18 +3,12 @@ package com.example.feelbetter.activities
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TimePicker
 import android.widget.Toast
 import com.example.feelbetter.R
 import com.example.feelbetter.firestore.FirestoreClass
-import com.example.feelbetter.fragments.children.TodoFragment
 import com.example.feelbetter.models.Task
-import com.example.feelbetter.models.TodoItem
 import kotlinx.android.synthetic.main.activity_create_task.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
-import java.security.AccessController.getContext
 import java.util.*
 
 class CreateTaskActivity : BaseActivity() {

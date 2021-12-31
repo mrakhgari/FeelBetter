@@ -3,12 +3,10 @@ package com.example.feelbetter.firestore
 import android.app.Activity
 import android.util.Log
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.example.feelbetter.MyProfileActivity
 import com.example.feelbetter.activities.*
 import com.example.feelbetter.fragments.TasksFragment
 import com.example.feelbetter.models.Task
-import com.example.feelbetter.models.TodoItem
 import com.example.feelbetter.models.User
 import com.example.feelbetter.utils.Constants
 import com.google.firebase.auth.FirebaseAuth

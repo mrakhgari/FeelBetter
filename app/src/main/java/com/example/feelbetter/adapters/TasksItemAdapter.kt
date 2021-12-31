@@ -59,12 +59,12 @@ open class TasksItemAdapter(private val context: Context, private var list: Arra
                     onDeleteListener!!.onClick(position, model)
                 }
             }
-
-            holder.itemView.edit.setOnClickListener {
-                if (onEditListener != null) {
-                    onEditListener!!.onClick(position, model)
-                }
-            }
+//
+//            holder.itemView.edit.setOnClickListener {
+//                if (onEditListener != null) {
+//                    onEditListener!!.onClick(position, model)
+//                }
+//            }
         }
 
     }
