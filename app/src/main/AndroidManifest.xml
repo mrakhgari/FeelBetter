@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
+            android:name=".activities.DoneTasksActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.CreateTaskActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MyProfileActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"

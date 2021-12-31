@@ -1,4 +1,5 @@
 package com.example.feelbetter.fragments.children;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import com.example.feelbetter.R;
 import com.example.feelbetter.adapters.ListViewAdapter;
+import com.example.feelbetter.firestore.FirestoreClass;
 import com.example.feelbetter.models.TodoItem;
 
 
@@ -27,11 +31,11 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 /**
-* @author mgh
+ * @author mgh
  * fragment of todoTasks
  * user can add item,delete it, and edit it
  */
-public class TodoFragment extends Fragment{
+public class TodoFragment extends Fragment {
 
 
     EditText ed;
@@ -39,8 +43,8 @@ public class TodoFragment extends Fragment{
     Button doneBt;
     Button startTimeBtn;
     Button endTimeBtn;
-    int startHour = -1 , startMinute = -1;
-    int endHour = -1  , endMinute = -1;
+    int startHour = -1, startMinute = -1;
+    int endHour = -1, endMinute = -1;
     public static ListView lv;
     public static ArrayList<String> todoList = new ArrayList<>();
     public static ArrayList<TodoItem> todoObjList = new ArrayList<>();
@@ -85,16 +89,16 @@ public class TodoFragment extends Fragment{
                              Bundle savedInstanceState) {
         tempDoneArrayList.clear();
         // Inflate the layout for this fragment
-       View view =  inflater.inflate(R.layout.fragment_todo, container, false);
-       ed = view.findViewById(R.id.todo_edit_text);
-       bt = view.findViewById(R.id.add_todo);
-       startTimeBtn = view.findViewById(R.id.start_time);
-       endTimeBtn = view.findViewById(R.id.end_time);
-       doneBt = view.findViewById(R.id.done_Button);
-       lv = view.findViewById(R.id.list_view);
+        View view = inflater.inflate(R.layout.fragment_todo, container, false);
+        ed = view.findViewById(R.id.todo_edit_text);
+        bt = view.findViewById(R.id.add_todo);
+        startTimeBtn = view.findViewById(R.id.start_time);
+        endTimeBtn = view.findViewById(R.id.end_time);
+        doneBt = view.findViewById(R.id.done_Button);
+        lv = view.findViewById(R.id.list_view);
         lv.setFocusable(false);
         lv.setItemsCanFocus(false);
-        adapter = new ListViewAdapter(getContext() , todoList);
+        adapter = new ListViewAdapter(getContext(), todoList);
         lv.setAdapter(adapter);
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         onBtClick();
@@ -104,7 +108,7 @@ public class TodoFragment extends Fragment{
         startTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                popTimePicker( true);
+                popTimePicker(true);
             }
         });
         //time picker for choosing end time for the current task
@@ -122,23 +126,21 @@ public class TodoFragment extends Fragment{
     /**
      * add new task button at the top of the page.
      */
-    public void onBtClick(){
+    public void onBtClick() {
         bt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                String result= ed.getText().toString();
-                if((startHour == -1)){
-                    Toast.makeText(getContext() , "Select a start time" , Toast.LENGTH_LONG).show();
-                }
-                else if((endHour == -1)){
-                    Toast.makeText(getContext() , "Select an end time" , Toast.LENGTH_LONG).show();
-                }
-                else if (result.equals("")){
-                    Toast.makeText(getContext() , "There is no task to be added" , Toast.LENGTH_LONG).show();
-                }
-                else {
-                    todoObjList.add(new TodoItem(String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute) , String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute) ,result));
+                String result = ed.getText().toString();
+                if ((startHour == -1)) {
+                    Toast.makeText(getContext(), "Select a start time", Toast.LENGTH_LONG).show();
+                } else if ((endHour == -1)) {
+                    Toast.makeText(getContext(), "Select an end time", Toast.LENGTH_LONG).show();
+                } else if (result.equals("")) {
+                    Toast.makeText(getContext(), "There is no task to be added", Toast.LENGTH_LONG).show();
+                } else {
+                    TodoItem ti = new TodoItem(String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute), String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute), result, new FirestoreClass().getCurrentUserId());
+                    todoObjList.add(ti);
 //                    List<String> field1List = todoObjList.stream().map(TodoItem::getTask).collect(Collectors.toList());
                     todoList.add(result);
                     startHour = -1;
@@ -153,25 +155,25 @@ public class TodoFragment extends Fragment{
     }
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static TodoItem findObj(String item){
+    public static TodoItem findObj(String item) {
         TodoItem todoObj = todoObjList.stream()
                 .filter(todo -> item.equals(todo.getTask()))
                 .findAny()
                 .orElse(null);
         return todoObj;
     }
+
     /**
      * done button at the end of the fragment. replaces current fragment with DoneFragment
      */
-    public void onDoneBtClick(){
+    public void onDoneBtClick() {
         doneBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 DoneFragment doneFragment = new DoneFragment();
-                bundle.putStringArrayList("key" , tempDoneArrayList);
+                bundle.putStringArrayList("key", tempDoneArrayList);
                 doneFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container, doneFragment).commit();
 
@@ -182,10 +184,11 @@ public class TodoFragment extends Fragment{
 
     /**
      * remove item from todoList
+     *
      * @param remove
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void removeItem(int remove){
+    public static void removeItem(int remove) {
         TodoItem item = findObj(todoList.get(remove));
         if (item != null)
             todoObjList.remove(item);
@@ -195,17 +198,19 @@ public class TodoFragment extends Fragment{
 
     /**
      * when the user edits pre tasks, this method updates that item
+     *
      * @param position
      * @param newData
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void editItem(int position , String newData){
+    public static void editItem(int position, String newData) {
         TodoItem item = findObj(todoList.get(position));
         if (item != null) {
-            todoObjList.add(new TodoItem(item.getStartTime(), item.getDueTime(), newData));
+            TodoItem todoItem = new TodoItem(item.getStartTime(), item.getDueTime(), newData, new FirestoreClass().getCurrentUserId());
+            todoObjList.add(todoItem);
             todoList.remove(item);
         }
-        todoList.set(position , newData);
+        todoList.set(position, newData);
         lv.setAdapter(adapter);
     }
 
@@ -213,7 +218,7 @@ public class TodoFragment extends Fragment{
      * makes an Item from todolist done
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void doneItem(int position){
+    public static void doneItem(int position) {
         TodoItem item = findObj(todoList.get(position));
         if (item != null) {
             todoList.remove(item);
@@ -224,16 +229,15 @@ public class TodoFragment extends Fragment{
     }
 
 
-    public void popTimePicker(Boolean isStart){
+    public void popTimePicker(Boolean isStart) {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                if(isStart) {
+                if (isStart) {
                     startHour = hourOfDay;
                     startMinute = minute;
                     startTimeBtn.setText(String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute));
-                }
-                else {
+                } else {
                     endHour = hourOfDay;
                     endMinute = minute;
                     endTimeBtn.setText(String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute));
@@ -244,8 +248,7 @@ public class TodoFragment extends Fragment{
         TimePickerDialog timePickerDialog;
         if (isStart) {
             timePickerDialog = new TimePickerDialog(getContext(), style, onTimeSetListener, startHour, startMinute, true);
-        }
-        else
+        } else
             timePickerDialog = new TimePickerDialog(getContext(), style, onTimeSetListener, endHour, endMinute, true);
         timePickerDialog.setTitle("select time");
         timePickerDialog.show();

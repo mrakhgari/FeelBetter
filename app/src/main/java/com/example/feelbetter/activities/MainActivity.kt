@@ -32,6 +32,7 @@ import com.example.feelbetter.firestore.FirestoreClass
 import com.example.feelbetter.models.User
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.fragment_tasks.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 
@@ -73,6 +74,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupTabBar()
         setupActionBar()
         FirestoreClass().getUserDetails(this)
+
     }
 
 

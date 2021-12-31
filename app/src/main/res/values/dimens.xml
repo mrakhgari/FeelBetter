@@ -41,4 +41,15 @@
     <dimen name="card_view_corner_radius">10dp</dimen>
     <dimen name="et_text_size">10sp</dimen>
     <dimen name="btn_padding_top_bottom">10dp</dimen>
+
+    <!--    Create task-->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="create_task_content_padding">16dp</dimen>
+    <dimen name="create_task_till_margin_top">25dp</dimen>
+    <dimen name="create_task_btn_margin_top">30dp</dimen>
+    <dimen name="card_view_layout_content_padding">10dp</dimen>
+    <dimen name="done_tasks_margin_top">70dp</dimen>
+    <dimen name="no_tasks_available_text_size">40sp</dimen>
+    <dimen name="done_tasks_content_padding">10dp</dimen>
+
 </resources>

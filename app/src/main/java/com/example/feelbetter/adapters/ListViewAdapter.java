@@ -45,51 +45,52 @@ public class ListViewAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if (convertView == null){
-            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_row , null);
-
-            TextView number = convertView.findViewById(R.id.number);
-            number.setText(position + 1 + ".");
-
-            TextView name = convertView.findViewById(R.id.name);
-            name.setText(list.get(position));
-
-            ImageView edit = convertView.findViewById(R.id.edit);
-            ImageView remove = convertView.findViewById(R.id.remove);
-            ImageView done = convertView.findViewById(R.id.done);
-
-            remove.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.O)
-                @Override
-                public void onClick(View v) {
-                    TodoFragment.removeItem(position);
-                }
-            });
-            done.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.O)
-                @Override
-                public void onClick(View v) {
-                    TodoFragment.doneItem(position);
-                }
-            });
-
-            edit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    manageEditDialog(layoutInflater , position);
-
-                }
-            });
-            name.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.O)
-                @Override
-                public void onClick(View v) {
-                    detailDialog(layoutInflater , position);
-                }
-            });
-        }
-        return convertView;
+//        if (convertView == null){
+//            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//            convertView = layoutInflater.inflate(R.layout.list_row , null);
+//
+//            TextView number = convertView.findViewById(R.id.number);
+//            number.setText(position + 1 + ".");
+//
+//            TextView name = convertView.findViewById(R.id.name);
+//            name.setText(list.get(position));
+//
+//            ImageView edit = convertView.findViewById(R.id.edit);
+//            ImageView remove = convertView.findViewById(R.id.remove);
+//            ImageView done = convertView.findViewById(R.id.done);
+//
+//            remove.setOnClickListener(new View.OnClickListener() {
+//                @RequiresApi(api = Build.VERSION_CODES.O)
+//                @Override
+//                public void onClick(View v) {
+//                    TodoFragment.removeItem(position);
+//                }
+//            });
+//            done.setOnClickListener(new View.OnClickListener() {
+//                @RequiresApi(api = Build.VERSION_CODES.O)
+//                @Override
+//                public void onClick(View v) {
+//                    TodoFragment.doneItem(position);
+//                }
+//            });
+//
+//            edit.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    manageEditDialog(layoutInflater , position);
+//
+//                }
+//            });
+//            name.setOnClickListener(new View.OnClickListener() {
+//                @RequiresApi(api = Build.VERSION_CODES.O)
+//                @Override
+//                public void onClick(View v) {
+//                    detailDialog(layoutInflater , position);
+//                }
+//            });
+//        }
+//        return convertView;
+        return  null;
     }
 
     public  void manageEditDialog(LayoutInflater layoutInflater , int position){

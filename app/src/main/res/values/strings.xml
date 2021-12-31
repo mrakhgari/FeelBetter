@@ -50,4 +50,13 @@
     <string name="my_profile">My Profile</string>
     <string name="name">Username</string>
     <string name="email">Email</string>
+
+    <!--    create task-->
+    <string name="create_task_title">Create Task</string>
+    <string name="create">Create</string>
+    <string name="task_description">Task Description</string>
+    <string name="due_time">Due time</string>
+    <string name="start_time">Start Time</string>
+    <string name="done_tasks">Done Tasks</string>
+    <string name="no_task_available">No Task Available</string>
 </resources>

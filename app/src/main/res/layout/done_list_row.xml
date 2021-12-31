@@ -25,36 +25,4 @@
         android:textSize="20sp"
 
         />
-
-    <ImageView
-        android:layout_width="22sp"
-        android:layout_height="22sp"
-        android:id="@+id/edit"
-        android:src="@drawable/edit"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/done"
-        android:layout_marginRight="12sp"
-       />
-    <ImageView
-        android:layout_width="22sp"
-        android:layout_height="22sp"
-        android:id="@+id/done"
-        android:src="@drawable/done"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/remove"
-        android:layout_marginRight="12sp"
-        />
-
-
-
-    <ImageView
-        android:layout_width="22sp"
-        android:layout_height="22sp"
-        android:id="@+id/remove"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="12sp"
-        android:src="@drawable/remove"
-        android:layout_alignParentRight="true"/>
-
-
 </RelativeLayout>

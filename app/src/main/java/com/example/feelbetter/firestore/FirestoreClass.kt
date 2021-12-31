@@ -1,14 +1,14 @@
 package com.example.feelbetter.firestore
 
 import android.app.Activity
-import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.feelbetter.MyProfileActivity
-import com.example.feelbetter.activities.LoginActivity
-import com.example.feelbetter.activities.MainActivity
-import com.example.feelbetter.activities.SignupActivity
+import com.example.feelbetter.activities.*
+import com.example.feelbetter.fragments.TasksFragment
+import com.example.feelbetter.models.Task
+import com.example.feelbetter.models.TodoItem
 import com.example.feelbetter.models.User
 import com.example.feelbetter.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -29,7 +29,7 @@ class FirestoreClass {
             }
     }
 
-    private fun getCurrentUserId(): String {
+    fun getCurrentUserId(): String {
         val currentUser = FirebaseAuth.getInstance().currentUser
 
         var currentUserId = ""
@@ -65,5 +65,71 @@ class FirestoreClass {
                     }
                 }
             }
+    }
+
+
+    fun createTask(activity: CreateTaskActivity, task: Task) {
+        mFirestore.collection(Constants.TASKS).document().set(task, SetOptions.merge())
+            .addOnSuccessListener {
+                Toast.makeText(activity, "Task created successfully", Toast.LENGTH_LONG)
+                    .show()
+                activity.createTaskSuccess()
+
+            }.addOnFailureListener { e ->
+                Toast.makeText(activity, "Take created failed", Toast.LENGTH_LONG).show()
+            }
+    }
+
+    fun getOnCompleteTasks(fragment: TasksFragment) {
+        Log.i("TASK", "IN GET TASKS")
+        mFirestore.collection(Constants.TASKS).whereEqualTo(Constants.OWNER, getCurrentUserId())
+            .whereEqualTo(Constants.FINISHED, false).get().addOnSuccessListener { doc ->
+                Log.i("TASKS", doc.documents.toString())
+                val taskList: ArrayList<Task> = ArrayList()
+                for (i in doc.documents) {
+                    val task = i.toObject(Task::class.java)!!
+                    task.documentId = i.id
+                    taskList.add(task)
+                }
+                fragment.onCompletedTaskToUI(taskList)
+            }.addOnFailureListener {
+                Log.e("TASKS", "Error while creating tasks")
+            }
+    }
+
+    fun getCompletedTasks(activity: DoneTasksActivity) {
+        mFirestore.collection(Constants.TASKS).whereEqualTo(Constants.OWNER, getCurrentUserId())
+            .whereEqualTo(Constants.FINISHED, true).get().addOnSuccessListener { doc ->
+                Log.i("TASKS", doc.documents.toString())
+                val taskList: ArrayList<Task> = ArrayList()
+                for (i in doc.documents) {
+                    val task = i.toObject(Task::class.java)!!
+                    task.documentId = i.id
+                    taskList.add(task)
+                }
+                activity.showTaskOnUI(taskList)
+            }.addOnFailureListener {
+                Log.e("TASKS", "Error while creating tasks")
+            }
+    }
+
+    fun doneTask(fragment: TasksFragment, documentId: String) {
+        mFirestore.collection(Constants.TASKS).document(documentId).update(Constants.FINISHED, true)
+            .addOnSuccessListener {
+                getOnCompleteTasks(fragment)
+            }
+    }
+
+    fun editTask(fragment: TasksFragment, documentId: String, task: String) {
+        mFirestore.collection(Constants.TASKS).document(documentId).update(Constants.TASK, task)
+            .addOnSuccessListener {
+                getOnCompleteTasks(fragment)
+            }
+    }
+
+    fun deleteTask(fragment: TasksFragment, documentId: String) {
+        mFirestore.collection(Constants.TASKS).document(documentId).delete().addOnSuccessListener {
+            getOnCompleteTasks(fragment)
+        }
     }
 }

@@ -1,47 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    xmlns:app = "http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".fragments.TasksFragment">-->
+
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/fragment_container">-->
+
+<!--    </FrameLayout>-->
+
+<!--&lt;!&ndash;    <com.google.android.material.appbar.AppBarLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">&ndash;&gt;-->
+<!--&lt;!&ndash;        <com.google.android.material.tabs.TabLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/tasks_tabLayout"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:tabTextColor="@color/gray"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@color/dark_purple"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:tabIndicatorColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:tabIndicatorHeight="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:tabMode="fixed"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:tabGravity="fill"/>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    </com.google.android.material.appbar.AppBarLayout>&ndash;&gt;-->
+
+
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/tasks_view_pager"-->
+<!--        app:layout_behavior = "com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>-->
+
+
+<!--</RelativeLayout>-->
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.TasksFragment">
 
-
-
     <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment_container">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.example.feelbetter.utils.MSPButton
+                android:id="@+id/btn_done_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/done_tasks_margin_top"
+                android:background="@drawable/white_button_background"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/done_tasks"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/button_text_size" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tasks_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/tv_no_task_available"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/no_task_available"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/no_tasks_available_text_size" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_create_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_vector_add_24dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </FrameLayout>
-
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-<!--        <com.google.android.material.tabs.TabLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/tasks_tabLayout"-->
-<!--            app:tabTextColor="@color/gray"-->
-<!--            android:background="@color/dark_purple"-->
-<!--            app:tabIndicatorColor="@color/white"-->
-<!--            app:tabIndicatorHeight="2dp"-->
-<!--            app:tabMode="fixed"-->
-<!--            app:tabGravity="fill"/>-->
-
-
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
-
-
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tasks_view_pager"
-        app:layout_behavior = "com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
-
 
 
 </RelativeLayout>
