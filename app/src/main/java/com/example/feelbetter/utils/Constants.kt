@@ -5,4 +5,7 @@ object Constants {
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
     const val USERS: String = "users"
 //    const val
+    const val IMAGE : String = "image"
+    const val NAME : String = "name"
+    
 }

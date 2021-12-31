@@ -4,49 +4,5 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/tabLayout">
-
-    </androidx.viewpager2.widget.ViewPager2>
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        app:tabGravity="fill"
-        app:tabIconTint="@color/tab_content_color_selector"
-        app:tabIndicator="@null"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/gray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="3dp"
-        android:background="@color/dark_purple">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_today_24"
-            android:text="@string/tasks" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_event_note_24"
-            android:text="@string/memories" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_insert_emoticon_24"
-            android:text="@string/inspiring" />
-
-
-    </com.google.android.material.tabs.TabLayout>
 
 </RelativeLayout>

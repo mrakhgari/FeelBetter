@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Toast
 import com.example.feelbetter.MyProfileActivity
 import com.example.feelbetter.activities.LoginActivity
 import com.example.feelbetter.activities.MainActivity
@@ -36,6 +37,16 @@ class FirestoreClass {
             currentUserId = currentUser.uid
         }
         return currentUserId
+    }
+
+    fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String, Any>) {
+        mFirestore.collection(Constants.USERS).document(getCurrentUserId()).update(userHashMap)
+            .addOnSuccessListener {
+                activity.profileUpdateSuccess()
+            }.addOnFailureListener { e ->
+                activity.hideProgressDialog()
+                Toast.makeText(activity, "Error on update profile", Toast.LENGTH_LONG).show()
+            }
     }
 
     fun getUserDetails(activity: Activity) {

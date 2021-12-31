@@ -1,5 +1,6 @@
 package com.example.feelbetter.activities
 
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
@@ -35,6 +36,11 @@ import kotlinx.android.synthetic.main.nav_header_main.*
 
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+    companion object {
+        const val MY_PROFILE_REQUEST_CODE = 11
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -102,24 +108,24 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun setupTabBar() {
-//        val adaptor = TabPageAdaptor(this, tabLayout.tabCount)
-//        view_pager.adapter = adaptor
-//
-//        view_pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//            override fun onPageSelected(position: Int) {
-//                tabLayout.selectTab(tabLayout.getTabAt(position))
-//            }
-//        })
-//
-//        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab) {
-//                view_pager.currentItem = tab.position
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {}
-//        })
+        val adaptor = TabPageAdaptor(this, tabLayout.tabCount)
+        view_pager.adapter = adaptor
+
+        view_pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                tabLayout.selectTab(tabLayout.getTabAt(position))
+            }
+        })
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                view_pager.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
 
     }
@@ -146,11 +152,23 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return super.dispatchTouchEvent(event)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == MY_PROFILE_REQUEST_CODE) {
+            FirestoreClass().getUserDetails(this)
+        } else {
+            Log.e("Cabcelled", "Cancelled")
+        }
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
             R.id.nav_my_profile -> {
-                startActivity(Intent(this, MyProfileActivity::class.java))
+                startActivityForResult(
+                    Intent(this, MyProfileActivity::class.java),
+                    MY_PROFILE_REQUEST_CODE
+                )
             }
             R.id.nav_sign_out -> {
                 FirebaseAuth.getInstance().signOut()
