@@ -42,5 +42,12 @@
     <string name="tasks">tasks</string>
     <string name="add_new_task">add new task</string>
 
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_sign_out">Sign Out</string>
 
+    <!--    profile-->
+    <string name="update">UPDATE</string>
+    <string name="my_profile">My Profile</string>
+    <string name="name">Username</string>
+    <string name="email">Email</string>
 </resources>

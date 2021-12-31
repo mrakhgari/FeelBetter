@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="splash_title_text_size">35sp</dimen>
+
+    <dimen name="height_of_nav_main">200dp</dimen>
+    <dimen name="nav_image_size">80dp</dimen>
+    <dimen name="nav_content_margin_start_end">16dp</dimen>
+    <dimen name="nav_content_margin_top">5dp</dimen>
+    <dimen name="nav_content_margin_bottom">10dp</dimen>
+    <dimen name="nav_user_name_text_size">18sp</dimen>
+    <dimen name="nav_image_circular_border_width">1dp</dimen>
+    <dimen name="nav_divider_height">0.5dp</dimen>
     <dimen name="button_background_radius">10dp</dimen>
     <dimen name="login_header_text_size">26sp</dimen>
     <dimen name="register_header_text_size">26sp</dimen>
@@ -20,6 +29,16 @@
     <dimen name="login_and_signup_fields_padding_start">50dp</dimen>
     <dimen name="login_and_signup_fields_padding_end">5dp</dimen>
     <dimen name="notification_title">20sp</dimen>
-
-
+    <!--    profile scene -->
+    <dimen name="my_profile_screen_content_margin_start_end">16dp</dimen>
+    <dimen name="my_profile_screen_content_margin_top_bottom">10dp</dimen>
+    <dimen name="my_profile_screen_content_padding">16dp</dimen>
+    <dimen name="my_profile_user_image_size">100dp</dimen>
+    <dimen name="my_profile_name_til_margin_top">25dp</dimen>
+    <dimen name="my_profile_name_et_email_margin_top">20dp</dimen>
+    <dimen name="my_profile_name_btn_update_margin_top">30dp</dimen>
+    <dimen name="card_view_elevation">10dp</dimen>
+    <dimen name="card_view_corner_radius">10dp</dimen>
+    <dimen name="et_text_size">10sp</dimen>
+    <dimen name="btn_padding_top_bottom">10dp</dimen>
 </resources>

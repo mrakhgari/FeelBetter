@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.feelbetter.MyProfileActivity
 import com.example.feelbetter.activities.LoginActivity
+import com.example.feelbetter.activities.MainActivity
 import com.example.feelbetter.activities.SignupActivity
 import com.example.feelbetter.models.User
 import com.example.feelbetter.utils.Constants
@@ -60,6 +62,12 @@ class FirestoreClass {
                 when (activity) {
                     is LoginActivity -> {
                         activity.userLoggedInSuccess(user)
+                    }
+                    is MainActivity -> {
+                        activity.updateNavigationUserDetails(user)
+                    }
+                    is MyProfileActivity -> {
+                        activity.setUserDataUI(user)
                     }
                 }
             }
