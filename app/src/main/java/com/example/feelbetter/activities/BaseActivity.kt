@@ -3,6 +3,7 @@ package com.example.feelbetter.activities
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.feelbetter.R
 import com.google.android.material.snackbar.Snackbar
@@ -25,7 +26,12 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun hideProgressDialog() {
-        mProgressDialog.dismiss()
+        try {
+            mProgressDialog.dismiss()
+
+        } catch (e: Exception){
+            Log.e("ERROR", "ERROR")
+        }
     }
 
     fun showMessageSnackBar(message: String, isError: Boolean = false) {
