@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelBetter">
         <activity
+            android:name=".activities.AddMemoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DoneTasksActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
@@ -78,9 +81,6 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.NewNoteActivity"
-            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
