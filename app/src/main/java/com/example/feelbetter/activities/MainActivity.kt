@@ -56,7 +56,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             // Log and toast
 //            val msg = getString(R.string.msg_token_fmt, token)
-            Log.d(TAG, "token is $token")
+//            Log.d(TAG, "token is $token")
             Log.e("TAG", "onCreate: CREATED")
 
             FirebaseMessaging.getInstance().subscribeToTopic("all")
