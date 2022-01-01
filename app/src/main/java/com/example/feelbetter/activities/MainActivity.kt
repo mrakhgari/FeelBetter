@@ -67,7 +67,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                         Log.e("TAG", "onCreate: subscribeToTopic failed")
                     }
                 }
-            Toast.makeText(baseContext, token.toString(), Toast.LENGTH_SHORT).show()
+//            Toast.makeText(baseContext, token.toString(), Toast.LENGTH_SHORT).show()
         })
         nav_view.setNavigationItemSelectedListener(this)
         ViewModelProvider(this)
