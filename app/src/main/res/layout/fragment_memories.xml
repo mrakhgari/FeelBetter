@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingTop="8dp"
+        android:paddingTop="60dp"
         android:paddingBottom="8dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
